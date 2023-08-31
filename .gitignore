@@ -41,7 +41,7 @@ env.bak/
 venv.bak/
 .data
 data/
-discovery/research
-.discovery/research
+discovery/research/notebooks
+.discovery/research/notebooks
 .idea
 .idea/
