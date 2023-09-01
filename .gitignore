@@ -39,8 +39,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-.data
-data/
+.dataset
+dataset/
 discovery/research/notebooks
 .discovery/research/notebooks
 .idea
