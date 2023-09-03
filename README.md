@@ -7,6 +7,7 @@
 
 _Active Noise Cancellation_ **(ANC)** system for automobile passengers. The system is a prototype based on deep neural network technology that aims to produce the Anti-Noise signal to make the noise more silent inside the car. The goal of the project is to help car drivers enjoy a comfortable ride without any interference or disruptions. 
 
+[The System Design Documenation.](./discovery/designdoc/System_Design.md)
 
 ### 🌟 **Introduction**
 Noise is everywhere. From the hum of city streets to the chatter of crowded rooms. But what if you could control that noise, or better yet, eliminate it? Enter Adaptive Active Noise Cancellation – your shield against unwanted ambient sounds.
