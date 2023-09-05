@@ -68,11 +68,12 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 
 1. _Real-Time Processing_: The system and application must employ machine learning (more specifically deep learning) models to predict and generate a counteractive noise signal in **near real-time**.
 2. _User Interface_: A user-friendly interface on the mobile application allowing users to activate/deactivate the ANC, adjust settings, add specification, data and provide feedback.
-3. _Connection Stability_: Seamless integration with car's audio systems, ensuring no intermittent disconnections or performance drops.
-4. _Multi-Environment Adaptability_: Effective noise cancellation in a variety of scenarios - from busting city traffic to highway drives.
-5. _Interoperability_: Ensure compatibility with a wide range of car audio systems without requiring special modifications.
-6. _Offline Mode_: The system must perform noise cancellation operations entirely on the user's device without relying on external servers or an active internet connection.
-7. _Data Collection_: Incorporate a mechanism allowing users to voluntarily share recorded audio samples in situations where noise cancellation was not effective, ensuring full user concent and privacy. Automating this process.
+3. _Interaction_: The use of the mobile application on the driver's side should be minimized to ensure a high level of safety.
+4. _Connection Stability_: Seamless integration with car's audio systems, ensuring no intermittent disconnections or performance drops.
+5. _Multi-Environment Adaptability_: Effective noise cancellation in a variety of scenarios - from busting city traffic to highway drives.
+6. _Interoperability_: Ensure compatibility with a wide range of car audio systems without requiring special modifications.
+7. _Offline Mode_: The system must perform noise cancellation operations entirely on the user's device without relying on external servers or an active internet connection.
+8. _Data Collection_: Incorporate a mechanism allowing users to voluntarily share recorded audio samples in situations where noise cancellation was not effective, ensuring full user concent and privacy. Automating this process.
 
 **Non-Functional/Technical Requirements:**
 
@@ -85,6 +86,7 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 7. _Sustainability_: Continuous monitoring and optimization to remain within a defined budget constraints.
 8. _Storage Efficiency_: Model and associated data should be compact enough to prevent undue storage strain on user devices.
 9. _Battery Efficiency_: Ensure the app's operations are optimized to minimize the battery consumption during the use.
+10. _Customizations for individual needs_: Passengers may have different preferences regarding the noise reduction level. Therefore, it may be necessary to provide users with the ability to adjust the noise reduction parameters in the rear of the cabin to meet their individual needs.
 
 
 **Constraints:**
@@ -93,6 +95,7 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 2. Variability in car cabin acoustics and audio hardware can impact the efficacy of the noise cancellation. So the system should function effectively in cars with differing audio acoustics and audio system qualities.
 3. Challenges in acquiring real-world error data samples to improve the model due to the offline nature of the app.
 4. Differences in device processing capabilities could impact the performance consistency across various smartphones.
+5. Noise reduction may be less effective for some types of noise, for example, for high-frequency or variable noise.
 
 ---
 
