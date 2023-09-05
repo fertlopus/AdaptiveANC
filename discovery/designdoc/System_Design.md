@@ -9,6 +9,7 @@
 4. [Requirements and Constraints.]()
 5. [Methodology.]()
 6. [Implementation.]()
+7. [WorkFlow and Time Horizons]()
 
 <br>
 
@@ -165,3 +166,10 @@ Since the core operation is offline, major costs will be in app development, mod
 
 * _Risks_:  Variability in real-world noise environments may lead to inconsistent performance. Differences in mobile device capabilities might impact user experience. Data privacy concerns when collecting user audio samples.
 * _Uncertainties_: The adoption rate among users, the potential need for hardware integration for optimal performance, and unforeseen technical challenges in achieving desired noise reduction levels.
+
+---
+### 7. Workflow and Time Horizons:
+
+<p align="center">
+<img src="./../../src/imgs/timeline.png">
+</p>
