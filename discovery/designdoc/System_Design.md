@@ -19,7 +19,7 @@
 
 The Adaptive Active Noise Cancellation (AANC) project tries to revolutionize noise cancellation approach in the car manufacturing industry. Traditionally, car manufacturers invest significant amount of money in hardware solutions (e.g. the overpriced microcontrollers that form the noise cancellation system inside the car) to insulate passengers from external noise, which can average between **70 to 80 dBs** during the highway drives.
 
-Our solution offers a modern technical approach by leveraging machine learning algoritms within a mobile (or desktop) application. Passengers can simply connect their phones to the car's audio system and activate the AANC app. The application, using our developed neural network, assesses the ambient noise and sends an anti-signal to counteract the noise, aiming to reduce the in-car levels to more **comfortable 30 to 40 dBs**, enhancing the in-car drivers experience.
+Our solution offers a modern technical approach by leveraging machine learning algoritms within a mobile (or desktop) application. No additional equipment is needed, only a mobile phone and the car's audio system. Passengers can simply connect their phones to the car's audio system and activate the AANC app. The application, using our developed neural network, assesses the ambient noise and sends an anti-signal to counteract the noise, aiming to reduce the in-car levels to more **comfortable 30 to 40 dBs**, enhancing the in-car drivers experience.
 
 <p align="center">
 <img src="./../../src/imgs/ANC_principle.png">
@@ -29,7 +29,7 @@ Our solution offers a modern technical approach by leveraging machine learning a
 
 ### 2. Motivation:
 
-The automobile industry has seen an exponential growth not just in the number of vehicles produced, but also in the expectations of consumers. As urbanization intensifies and roads become busier, the challenge of maintaining a tranquil in-car environment intensifies. Ambient noise - from engines, traffic, and other urban sounds - can be more than just an inconvenience: prolonged exposure can lead to stress, fatigue and even [health complications.](https://www.nonoise.org/library/suter/suter.htm)
+The automobile industry has seen an exponential growth not just in the number of vehicles produced, but also in the expectations of consumers. As urbanization intensifies and roads become busier, the challenge of maintaining a tranquil in-car environment intensifies. Ambient noise - from engines, traffic, and other urban sounds - can be more than just an inconvenience: prolonged exposure can lead to stress, fatigue and even [health complications.](https://www.nonoise.org/library/suter/suter.htm) Studies also show that chronic exposure to noise can affect your sleep and hearing and contribute to health problems like heart disease.
 
 Although car manufacturers have always been inclined to use physical enhancements - be it improved seals, thicker glass, or enhanced insulation - these solutions often add significant weight to vehicles, [impacting fuel efficiency](https://natural-resources.canada.ca/sites/www.nrcan.gc.ca/files/oee/pdf/transportation/fuel-efficient-technologies/autosmart_factsheet_16_e.pdf) and adding to manufacturing costs. An effective, **software-based solution** not only sidesteps these challenges but also brings forth an adaptable, continuously improving system that can be tailored for various driving conditions and environments.
 
@@ -43,7 +43,7 @@ The Adaptive Active Noise Cancellation (AANC) system - a fusion of advanced mach
 
 **_Noise Reduction Efficiency_**
 
-The foremost metric of success is the ability of the ANCC system to consistently reduce in-cabin noise levels from an average of 70-80 dBs **to the target range of 30-40 dBs** across varied driving conditions.
+The foremost metric of success is the ability of the ANCC system to consistently reduce in-cabin noise levels from an average of 70-80 dBs **to the target range of 30-40 dBs** across varied driving conditions creating a comfortable environment inside the car. 
 
 
 After the solution will be integrated into the service (e.g. mobile app):
@@ -67,7 +67,7 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 
 **Functional Requirements**:
 
-1. _Real-Time Processing_: The system and application must employ machine learning (more specifically deep learning) models to predict and generate a counteractive noise signal in **near real-time**.
+1. _Real-Time Processing_: The system and application must employ machine learning (more specifically deep learning) models offline  to predict and generate a counteractive noise signal in **near real-time**.
 2. _User Interface_: A user-friendly interface on the mobile application allowing users to activate/deactivate the ANC, adjust settings, add specification, data and provide feedback.
 3. _Connection Stability_: Seamless integration with car's audio systems, ensuring no intermittent disconnections or performance drops.
 4. _Multi-Environment Adaptability_: Effective noise cancellation in a variety of scenarios - from busting city traffic to highway drives.
