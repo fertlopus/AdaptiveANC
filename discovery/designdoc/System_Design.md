@@ -48,6 +48,14 @@ The foremost metric of success is the ability of the ANCC system to consistently
 
 After the solution will be integrated into the service (e.g. mobile app):
 
+_Application Downloads_
+
+One way to estimate user interest is by tracking the number of downloads for the application. This metric provides valuable insights into the initial attraction of our product to potential users. A higher number of downloads suggests a greater interest in the offered features and functionalities.
+
+_Continuous Usage of Noise Reduction Function_
+
+A more refined approach to gauging user interest is the evaluation of the continuous usage of the noise reduction function within the application. Longer durations of usage indicate not only interest but also user satisfaction. This is a testament to the effectiveness of the noise reduction mechanism within our application.
+
 _User Satisfaction_
 
 Using in-app surveys and feedback mechanisms, we aim to achieve an average user satisfaction of 4.5/5 score or above, indicating that users find significant value and effectiveness in our solution.
