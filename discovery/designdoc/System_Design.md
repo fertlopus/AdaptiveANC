@@ -35,7 +35,7 @@ Although car manufacturers have always been inclined to use physical enhancement
 
 The confluence of advancements in machine learning, increased computational power of everyday devices, and the ubiquitous nature of smartphones and electronic devices offers a unique opportunity. Consumers are more tech-savvy and open to integrating their digital experiences not only with their every-day habits but also with their vehicles. Moreover, as electric vehicles (EVs) rise in prominence, traditional engine noises diminish, but other ambient noises become more noticeable. Tackling this challenge now positions us at the forefront of an evolving industry need.
 
-The Adaptive Active Noise Cancellation (AANC) system - a fusion of advanced machine learning technology and user-centric design. Our solution transforms the average smartphone into a sophisticated noise-cancellation device. For car manufacturers, **AANC offers a cost-effective alternative** to expensive hardware modifications, enabling production of lighter, more fuel-efficient vehicles. For users, **it promises a serene, adaptable** auditory experience, reducing stress and fatigue, and elevating every journey. By tackling ambient noise at its core, we not only elevate the driving experience but also address the deeper health and well-being concerns of prolonged noise exposure.
+The AANC system - a fusion of advanced machine learning technology and user-centric design. Our solution transforms the average smartphone into a sophisticated noise-cancellation device. For car manufacturers, **AANC offers a cost-effective alternative** to expensive hardware modifications, enabling production of lighter, more fuel-efficient vehicles. For users, **it promises a serene, adaptable** auditory experience, reducing stress and fatigue, and elevating every journey. By tackling ambient noise at its core, we not only elevate the driving experience but also address the deeper health and well-being concerns of prolonged noise exposure.
 
 ---
 
@@ -76,12 +76,13 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 **Functional Requirements**:
 
 1. _Real-Time Processing_: The system and application must employ machine learning (more specifically deep learning) models offline  to predict and generate a counteractive noise signal in **near real-time**.
-2. _User Interface_: A user-friendly interface on the mobile application allowing users to activate/deactivate the ANC, adjust settings, add specification, data and provide feedback.
+2. _User Interface_: A user-friendly interface on the mobile application allowing users to activate/deactivate the AANC, adjust settings, add specification, data and provide feedback.
 3. _Connection Stability_: Seamless integration with car's audio systems, ensuring no intermittent disconnections or performance drops.
 4. _Multi-Environment Adaptability_: Effective noise cancellation in a variety of scenarios - from busting city traffic to highway drives.
 5. _Interoperability_: Ensure compatibility with a wide range of car audio systems without requiring special modifications.
-6. _Offline Mode_: The system must perform noise cancellation operations entirely on the user's device without relying on external servers or an active internet connection.
-7. _Data Collection_: Incorporate a mechanism allowing users to voluntarily share recorded audio samples in situations where noise cancellation was not effective, ensuring full user concent and privacy. Automating this process.
+6. _Offline Mode_: The system must be resistant to a long absence of Internet connection and perform noise cancellation operations entirely on the user's device without relying on external servers or an active internet connection.
+7. _Data Collection_: Incorporate a mechanism allowing users to voluntarily share recorded audio samples in situations where noise cancellation was not effective. Automating this process.
+8. _Data Privacy_: No personal user data should be stored or transmitted.
 
 **Non-Functional/Technical Requirements:**
 
@@ -89,13 +90,11 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 2. _Precision_: The predicted anti-noise signal should have as low as possible MSE (or RMSE) metric to prevent amplification of ambient noise.
 3. _Entertainment_: It is necessary to keep music and conversations inside the car not suppressed
 4. _Security_: Data transmissions between the mobile app and car audio system should be encrypted to prevent breaches.
-4. _Cost_: Infrastructure and operational costs should remain below a certain monthly budget to support system, e.g. $500 per month.
-5. _Data Privacy_: No personal user data should be stored or transmitted.
+5. _Cost_: Infrastructure and operational costs should remain below a certain monthly budget to support system, e.g. $500 per month.
 6. _Scalability_: Infrastructure should be scalable to support an increasing user base without substantial cost hikes, especially if the solution will be used in other scenarios (e.g. meetings, calls, meditation etc.)
 7. _Sustainability_: Continuous monitoring and optimization to remain within a defined budget constraints.
 8. _Storage Efficiency_: Model and associated data should be compact enough to prevent undue storage strain on user devices.
 9. _Battery Efficiency_: Ensure the app's operations are optimized to minimize the battery consumption during the use.
-
 
 **Constraints:**
 
@@ -104,6 +103,8 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 3. Challenges in acquiring real-world error data samples to improve the model due to the offline nature of the app.
 4. Differences in device processing capabilities could impact the performance consistency across various smartphones.
 5. It is necessary to take into account storage and perfomance limitations of a mobile phone to be able to generate a model prediction offline.
+6. Noise reduction may be less effective for some types of noise, for example, for high-frequency, sporadic or white noise.
+7. The sound is localized unequally in different places of the car cabin and the spatial separation of the signal receiver and the noise reduction source can reduce its quality
 
 ---
 
