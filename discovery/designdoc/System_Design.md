@@ -87,7 +87,8 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 
 1. _Latency_: Inference speed of the predictive model should be optimized to ensure p99 latency is below a specified threshold, e.g. 10 ms.
 2. _Precision_: The predicted anti-noise signal should have as low as possible MSE (or RMSE) metric to prevent amplification of ambient noise.
-3. _Security_: Data transmissions between the mobile app and car audio system should be encrypted to prevent breaches.
+3. _Entertainment_: It is necessary to keep music and conversations inside the car not suppressed
+4. _Security_: Data transmissions between the mobile app and car audio system should be encrypted to prevent breaches.
 4. _Cost_: Infrastructure and operational costs should remain below a certain monthly budget to support system, e.g. $500 per month.
 5. _Data Privacy_: No personal user data should be stored or transmitted.
 6. _Scalability_: Infrastructure should be scalable to support an increasing user base without substantial cost hikes, especially if the solution will be used in other scenarios (e.g. meetings, calls, meditation etc.)
@@ -102,6 +103,7 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 2. Variability in car cabin acoustics and audio hardware can impact the efficacy of the noise cancellation. So the system should function effectively in cars with differing audio acoustics and audio system qualities.
 3. Challenges in acquiring real-world error data samples to improve the model due to the offline nature of the app.
 4. Differences in device processing capabilities could impact the performance consistency across various smartphones.
+5. It is necessary to take into account storage and perfomance limitations of a mobile phone to be able to generate a model prediction offline.
 
 ---
 
