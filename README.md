@@ -49,6 +49,21 @@ Noise is everywhere. From the hum of city streets to the chatter of crowded room
 
 ---
 
+### 🔢 Dataset:
+
+Now we are collecting ambient sound dataset from open source platforms (e.g. YouTube).
+
+To download dataset you have file `ids.csv` under directory:
+```./src/datasources/youtube_ids/ids.csv```
+
+In order to get audio batches by provided duration per batch you need to run the following script:
+
+``` Python
+python ./utils/data/data_parser.py --file_with_ids ./src/datasources/youtube_ids/ids.csv --save_to ./dataset/batches/ --source youtube --audio_format wav --batch --batch_seconds 120
+```
+
+---
+
 ### TODOs:
 For further exploration, setup instructions, and contributions.
 

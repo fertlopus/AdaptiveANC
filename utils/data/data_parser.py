@@ -54,13 +54,14 @@ class DataParser:
         """
         yt = YouTube(f"https://www.youtube.com/watch?v={video_id}")
         stream = yt.streams.filter(only_audio = True).first()
-        audio_path = self.save_to / f"{yt.title}.{self.audio_format}"
-        stream.download(output_path = str(self.save_to), filename = yt.title)
+        audio_path = self.save_to / f"{video_id}.{self.audio_format}"
+        stream.download(output_path = str(self.save_to), filename = f"{video_id}.{self.audio_format}")
         return audio_path.with_suffix(f".{self.audio_format}")
 
-    def segment_audio(self, audio_path: Path) -> None:
+    def segment_audio(self, video_id: str, audio_path: Path) -> None:
         """
         Segments an audio file into chunks of specified length.
+        :param video_id: video id of the file.
         :param audio_path: Path to the audio file.
         :return: None
         """
@@ -70,7 +71,7 @@ class DataParser:
         for i in range(0, int(duration), self.batch_seconds):
             start = i
             end = i + self.batch_seconds if i + self.batch_seconds < duration else duration
-            segment_filename = f"{audio_path.stem}_segment_{i // self.batch_seconds + 1}{audio_path.suffix}"
+            segment_filename = f"{video_id}_segment_{i // self.batch_seconds + 1}{audio_path.suffix}"
             audio.subclip(start, end).write_audiofile(str(self.save_to / segment_filename))
 
     def process(self) -> None:
@@ -84,7 +85,8 @@ class DataParser:
         for video_id in tqdm(video_ids, desc="Downloading and processing videos"):
             audio_path = self.downloader(video_id)
             if self.batch:
-                self.segment_audio(audio_path)
+                self.segment_audio(video_id, audio_path)
+                audio_path.unlink()
 
 
 def main():
@@ -97,7 +99,7 @@ def main():
     parser.add_argument('--audio_format', type = str, default = 'wav', choices = ['wav', 'mp3'],
                         help = 'Desired audio format to save the files.')
     parser.add_argument('--batch', action = 'store_true', help = 'Save the audio in batches of specified duration.')
-    parser.add_argument('--batch_seconds', type = int, default = 30,
+    parser.add_argument('--batch_seconds', type = int, default = 120,
                         help = 'Duration of each batch in seconds if batch mode is activated.')
 
     args = parser.parse_args()

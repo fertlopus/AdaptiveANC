@@ -82,7 +82,8 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 5. _Interoperability_: Ensure compatibility with a wide range of car audio systems without requiring special modifications.
 6. _Offline Mode_: The system must be resistant to a long absence of Internet connection and perform noise cancellation operations entirely on the user's device without relying on external servers or an active internet connection.
 7. _Data Collection_: Incorporate a mechanism allowing users to voluntarily share recorded audio samples in situations where noise cancellation was not effective. Automating this process.
-8. _Data Privacy_: No personal user data should be stored or transmitted.
+8. _Interaction_: The use of the mobile application on the driver's side should be minimized to ensure a high level of safety.
+9. _Data Privacy_: No personal user data should be stored or transmitted.
 
 **Non-Functional/Technical Requirements:**
 
@@ -95,6 +96,7 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 7. _Sustainability_: Continuous monitoring and optimization to remain within a defined budget constraints.
 8. _Storage Efficiency_: Model and associated data should be compact enough to prevent undue storage strain on user devices.
 9. _Battery Efficiency_: Ensure the app's operations are optimized to minimize the battery consumption during the use.
+10. _Customizations for individual needs_: Passengers may have different preferences regarding the noise reduction level. Therefore, it may be necessary to provide users with the ability to adjust the noise reduction parameters in the rear of the cabin to meet their individual needs.
 
 **Constraints:**
 
@@ -105,6 +107,8 @@ Monitoring the turnaround time from when a user reports an issue to when it is r
 5. It is necessary to take into account storage and perfomance limitations of a mobile phone to be able to generate a model prediction offline.
 6. Noise reduction may be less effective for some types of noise, for example, for high-frequency, sporadic or white noise.
 7. The sound is localized unequally in different places of the car cabin and the spatial separation of the signal receiver and the noise reduction source can reduce its quality
+8. Noise reduction may be less effective for some types of noise, for example, for high-frequency or variable noise.
+
 
 ---
 
