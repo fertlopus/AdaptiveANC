@@ -3,23 +3,8 @@ from anc.models.ancrn.gates.spectralgate.base import SpectralGate
 from librosa import stft, istft
 from scipy.signal import fftconvolve
 from .utils import _amp_to_db
-
-
-class FFTConfig:
-    def __init__(self, n_fft = 2048, hop_length = 512, win_length = None):
-        self.n_fft = n_fft
-        self.hop_length = hop_length
-        self.win_length = win_length if win_length else n_fft
-
-
-class NoiseConfig:
-    def __init__(self, noise_thresh_stationary=0.15, prop_decrease=1.0, smooth_mask=True,
-                 thresh_n_mult_stationary=0.25, sigmoid_slope_stationary=1.0):
-        self.noise_thresh_stationary = noise_thresh_stationary
-        self.prop_decrease = prop_decrease
-        self.smooth_mask = smooth_mask
-        self.thresh_n_mult_stationary = thresh_n_mult_stationary
-        self.sigmoid_slope_stationary = sigmoid_slope_stationary
+import multiprocessing
+from .config import FFTConfig, NoiseConfigStationary, NoiseConfigNonStationary
 
 
 class SpectralGateStationary(SpectralGate):
@@ -29,7 +14,8 @@ class SpectralGateStationary(SpectralGate):
 
         if noise_config_stationary:
             self.n_std_thresh_stationary = noise_config_stationary.n_std_thresh_stationary
-            self.y_noise = self._prepare_noise(noise_config_stationary.y_noise, noise_config_stationary.clip_noise_stationary)
+            self.y_noise = self._prepare_noise(noise_config_stationary.y_noise,
+                                               noise_config_stationary.clip_noise_stationary)
         else:
             self.n_std_thresh_stationary = kwargs.get('n_std_thresh_stationary')
             y_noise = kwargs.get('y_noise')
@@ -71,15 +57,11 @@ class SpectralGateStationary(SpectralGate):
         return mean_freq_noise + std_freq_noise * self.n_std_thresh_stationary
 
     def spectral_gating_stationary(self, chunk):
-        """Stationary version of spectral gating."""
+        """Non-stationary version of spectral gating."""
         denoised_channels = np.zeros_like(chunk)
-        for ci, channel in enumerate(chunk):
-            sig_stft, sig_stft_denoised = self._process_channel(channel)
-            denoised_signal = istft(
-                sig_stft_denoised,
-                hop_length = self._hop_length,
-                win_length = self._win_length,
-            )
+        with multiprocessing.Pool() as pool:
+            results = pool.map(_parallel_channel_processing, [(ci, channel, self) for ci, channel in enumerate(chunk)])
+        for ci, denoised_signal in results:
             denoised_channels[ci, :len(denoised_signal)] = denoised_signal
         return denoised_channels
 
@@ -112,3 +94,14 @@ class SpectralGateStationary(SpectralGate):
     def _do_filter(self, chunk):
         """Do the actual filtering."""
         return self.spectral_gating_stationary(chunk)
+
+
+def _parallel_channel_processing(data):
+    ci, channel, instance = data
+    abs_sig_stft, sig_stft_denoised = instance._process_channel(channel)
+    denoised_signal = istft(
+        sig_stft_denoised,
+        hop_length = instance._hop_length,
+        win_length = instance._win_length
+    )
+    return ci, denoised_signal

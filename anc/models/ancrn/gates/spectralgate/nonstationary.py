@@ -2,21 +2,8 @@ from anc.models.ancrn.gates.spectralgate.base import SpectralGate
 import numpy as np
 from librosa import stft, istft
 from scipy.signal import filtfilt, fftconvolve
-import tempfile
 from .utils import sigmoid
-
-
-class FFTConfig:
-    def __init__(self, n_fft=2048, hop_length=512, win_length=None):
-        self.n_fft = n_fft
-        self.hop_length = hop_length
-        self.win_length = win_length if win_length else n_fft
-
-
-class NoiseConfigNonStationary:
-    def __init__(self, thresh_n_mult_nonstationary, sigmoid_slope_nonstationary):
-        self.thresh_n_mult_nonstationary = thresh_n_mult_nonstationary
-        self.sigmoid_slope_nonstationary = sigmoid_slope_nonstationary
+from .config import FFTConfig, NoiseConfigStationary, NoiseConfigNonStationary
 
 
 class SpectralGateNonStationary(SpectralGate):
