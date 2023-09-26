@@ -6,10 +6,28 @@ import tempfile
 from .utils import sigmoid
 
 
+class FFTConfig:
+    def __init__(self, n_fft=2048, hop_length=512, win_length=None):
+        self.n_fft = n_fft
+        self.hop_length = hop_length
+        self.win_length = win_length if win_length else n_fft
+
+
+class NoiseConfigNonStationary:
+    def __init__(self, thresh_n_mult_nonstationary, sigmoid_slope_nonstationary):
+        self.thresh_n_mult_nonstationary = thresh_n_mult_nonstationary
+        self.sigmoid_slope_nonstationary = sigmoid_slope_nonstationary
+
+
 class SpectralGateNonStationary(SpectralGate):
     def __init__(self, *args, **kwargs):
-        self._thresh_n_mult_nonstationary = kwargs.pop('thresh_n_mult_nonstationary')
-        self._sigmoid_slope_nonstationary = kwargs.pop('sigmoid_slope_nonstationary')
+        noise_config_nonstationary = kwargs.get('noise_config_nonstationary')
+        if noise_config_nonstationary:
+            self._thresh_n_mult_nonstationary = noise_config_nonstationary.thresh_n_mult_nonstationary
+            self._sigmoid_slope_nonstationary = noise_config_nonstationary.sigmoid_slope_nonstationary
+        else:
+            self._thresh_n_mult_nonstationary = kwargs.pop('thresh_n_mult_nonstationary')
+            self._sigmoid_slope_nonstationary = kwargs.pop('sigmoid_slope_nonstationary')
         super().__init__(*args, **kwargs)
 
     def spectral_gating_nonstationary(self, chunk):
